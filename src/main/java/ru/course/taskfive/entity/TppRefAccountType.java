@@ -13,7 +13,8 @@ public class TppRefAccountType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer internal_id;
     private String value;
-    @OneToMany(mappedBy = "account_type", fetch = FetchType.EAGER, targetEntity = TppRefProductRegisterType.class)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account_type")
     private List<TppRefProductRegisterType> tppRefProductRegisterTypeList = new ArrayList<>();
     public TppRefAccountType() {
     }

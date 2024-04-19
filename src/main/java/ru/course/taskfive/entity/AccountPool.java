@@ -17,7 +17,8 @@ public class AccountPool {
     private String mdm_code;
     private String priority_code;
     private String registry_type_code;
-    @OneToMany(mappedBy = "id", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account_pool_id")
     private List<Account> accountList;
     public AccountPool() {
     }

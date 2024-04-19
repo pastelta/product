@@ -8,10 +8,10 @@ import lombok.Data;
 @Table(name = "tpp_product_register")
 public class TppProductRegister {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer product_id;
-    @Column
+    @Column(name = "type")
     private String type;
     private Integer account;
     private String currency_code;

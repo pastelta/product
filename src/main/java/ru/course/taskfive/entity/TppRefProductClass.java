@@ -20,7 +20,8 @@ public class TppRefProductClass {
     private String product_row_name;
     private String subclass_code;
     private String subclass_name;
-    @OneToMany(mappedBy = "product_class_code", fetch = FetchType.EAGER, targetEntity = TppRefProductRegisterType.class)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_class_code")
     private List<TppRefProductRegisterType> tppRefProductRegisterTypeList = new ArrayList<>();
 
     public TppRefProductClass() {

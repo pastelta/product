@@ -23,7 +23,8 @@ public class ProductController {
         return response;
     }
     @PostMapping("corporate-settlement-account/create")
-    public void saveRegister(@Valid @RequestBody Register register) {
-        REGISTER_SERVICE.saveRegister(register);
+    public ResponseEntity saveRegister(@Valid @RequestBody Register register) {
+        ResponseEntity response=REGISTER_SERVICE.saveRegister(register);
+        return response;
     }
 }

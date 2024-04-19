@@ -27,7 +27,7 @@ public class ProductMapper {
         tppProduct.setNso(product.getMinimalBalance());
         tppProduct.setThreshold_amount(product.getThresholdAmount());
         tppProduct.setTax_rate(product.getTaxPercentageRate());
-        tppProduct.setState(StateAccount.открыт.toString());
+        tppProduct.setState(StateAccount.OPENED.toString());
 
         for (Arrangement a :
                 arrangementList) {

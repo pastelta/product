@@ -1,8 +1,8 @@
 package ru.course.taskfive.enums;
 
 public enum StateAccount {
-    закрыт,
-    открыт,
-    зарезервирован,
-    удален
+    CLOSED,
+    OPENED,
+    RESERVED,
+    DELETED
 }
