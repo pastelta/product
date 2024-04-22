@@ -9,6 +9,7 @@ import ru.course.taskfive.entity.*;
 import ru.course.taskfive.enums.StateAccount;
 import ru.course.taskfive.mapper.RegisterMapper;
 import ru.course.taskfive.model.Register;
+import ru.course.taskfive.model.RegisterResponse;
 import ru.course.taskfive.repository.AccountPoolRepositoryable;
 import ru.course.taskfive.repository.AccountRepositoryable;
 import ru.course.taskfive.repository.TppRefRegisterTypeRepositoryable;
@@ -25,7 +26,7 @@ public class RegisterService implements RegisterServiceable {
 
     @Override
     @Transactional
-    public ResponseEntity<String> saveRegister(Register register) {
+    public ResponseEntity<Object> saveRegister(Register register) {
 
         //Шаг 2 ПР
         if (REGISTER_REPOSITORY.findAll().stream().filter(i -> i.getType().equals(register.getRegistryTypeCode()))
@@ -53,7 +54,8 @@ public class RegisterService implements RegisterServiceable {
         tppProductRegister.setType(register.getRegistryTypeCode());
 
         TppProductRegister res = REGISTER_REPOSITORY.save(tppProductRegister);
+        RegisterResponse registerResponse = new RegisterResponse("200", "OK", res.getId());
 
-        return ResponseEntity.status(HttpStatus.OK).body("{\"data\":{\"accountId\":\""+ res.getId() +"\"}}");
+        return new ResponseEntity<>(registerResponse, HttpStatus.OK);
     }
 }
