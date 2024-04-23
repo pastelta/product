@@ -17,7 +17,7 @@ import ru.course.taskfive.repository.TppRegisterRepositoryable;
 import static io.restassured.RestAssured.given;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class TaskFiveApplicationTests {
+class ProductTaskFiveApplicationTests {
 	@Autowired
 	private TppRegisterRepositoryable r;
 	@Autowired
